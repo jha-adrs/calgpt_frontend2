@@ -1,29 +1,32 @@
-import React from 'react'
-import { ModeToggle, ModeToggleWithTransition } from '../mode-toggle'
-import { AlignCenter, AlignLeft, BadgePercent, Calendar, CalendarClock, ChevronFirstIcon, FileClock, LogOut, LucideLogOut, LucideMenu, MenuIcon, Settings, Settings2, User2, Users, Users2 } from 'lucide-react'
-import { Button } from '../ui/button'
+
+import {  ModeToggleWithTransition } from '../mode-toggle'
+import {   Calendar, Feather, FileClock, LucideLogOut, Settings2, Users2 } from 'lucide-react'
+
 
 import "@/styles/extra.css"
-import { Tooltip, TooltipContent, TooltipTrigger } from '../ui/tooltip'
 import MiniToolTip from '../mini-tooltip'
-import { Avatar } from '../ui/avatar'
 import UserAvatar from '../forms/UserAvatar'
+import ExpandedLeftNav from './ExpandedLeftNav'
+
 
 const LeftNavbar = () => {
+    
     return (
-        <div className='flex flex-col w-10  bg-white/40 rounded ml-4 mt-4  dark:bg-gray-200/10 justify-between h-[96%]'>
+        <>
+        <div className='hidden sm:flex flex-col w-10   bg-white/20 dark:bg-gray-200/10 rounded-lg ml-2 mt-4   justify-between h-full '>
             <div className='my-4'>
-                <AlignLeft variant='outline' className='flex flex-col items-center justify-center w-full aspect-square rounded bg-transparent border-none text-primary mb-8 ' />
-                <div className=" flex flex-col gap-6 items-center">
+                <Feather  className='flex flex-col items-center justify-center w-full aspect-square rounded bg-transparent border-none text-gray-800 dark:text-white mb-8  h-8' />
+                <div className="flex flex-col gap-6 items-center">
 
                     <MiniToolTip text='Calendar' type="leftNav" Component={Calendar} />
+                    <MiniToolTip text='Past Events' type="leftNav" Component={FileClock} />
                     <MiniToolTip text='Team' type="leftNav" Component={Users2} />
                     <MiniToolTip text='Settings' type="leftNav" Component={Settings2} />
 
 
                 </div>
             </div>
-            <div className='mb-4'>
+            <div className='mb-8'>
                 <div className="flex flex-col gap-6 items-center">
                     <MiniToolTip text='Profile' type="leftNav" Component={UserAvatar} />
                     <MiniToolTip text='Toggle Theme' type="leftNav" Component={ModeToggleWithTransition} />
@@ -32,6 +35,12 @@ const LeftNavbar = () => {
             </div>
 
         </div>
+
+        <div className='sm:hidden'>
+        <ExpandedLeftNav/>
+        </div>
+        
+        </>
     )
 }
 

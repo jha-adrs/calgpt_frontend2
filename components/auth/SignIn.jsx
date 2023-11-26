@@ -6,6 +6,7 @@ import { buttonVariants } from '../ui/button'
 import { cn } from '@/lib/utils'
 import { UserAuthForm } from '@/components/forms/UserAuthForm'
 import { ModeToggle } from '../mode-toggle'
+import { Feather } from 'lucide-react'
 const Signin = () => {
     return (
         <>
@@ -25,7 +26,7 @@ const Signin = () => {
           <div id="hide-md" className="relative  h-full flex-col p-10 text-white  md:flex">
             
             <div className="relative z-20 flex items-center justify-between text-lg font-medium">
-              <div className='flex flex-row'>GCal<Icons.logo className="w-8 h-8 mx-2" /></div>
+              <div className='flex flex-row'>GCal<Feather className="w-6 h-6 mx-2" /></div>
               <ModeToggle className='bg-transparent border-none' />
             </div>
             <div className="relative z-20 mt-auto">

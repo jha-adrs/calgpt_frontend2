@@ -2,7 +2,7 @@ import React from 'react'
 import { Tooltip, TooltipContent, TooltipTrigger } from './ui/tooltip'
 
 const ToolTipPresetClasses = {
-    "leftNav": "text-gray-700 dark:text-white h-[1.2rem] w-[1.2rem]  transition-colors  rotate-0 scale-100 "
+    "leftNav": "text-black dark:text-white h-[1.2rem] w-[1.2rem]  transition-colors  rotate-0 scale-100 "
 }
 const settings={
     "leftNav": {
