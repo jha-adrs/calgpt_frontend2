@@ -13,7 +13,7 @@ export function ExpandedLeftNav() {
                 <AlignLeft variant='outline' className='flex flex-col items-center justify-center w-full aspect-square rounded bg-transparent border-none text-black dark:text-white  ' />
             </Dialog.Trigger>
             <Dialog.Overlay className="fixed inset-0 bg-black bg-opacity-50 " />
-            <Dialog.Content open={true} className="fixed w-[70%] inset-0 z-50 backdrop-blur-sm data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 bg-slate-100/20 dark:bg-zinc-950/80
+            <Dialog.Content open={true} className="fixed w-[70%] inset-0 z-50 backdrop-blur-sm data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 bg-slate-800/30 dark:bg-zinc-950/80
         rounded ">
                 <Dialog.Title className="text-lg text-white text-center">
                     <div className="flex flex-row gap-2 items-center justify-center my-4">
