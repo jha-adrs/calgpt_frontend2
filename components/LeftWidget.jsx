@@ -1,13 +1,12 @@
-import { Avatar } from "@radix-ui/react-avatar"
-import { AvatarFallback, AvatarImage } from "./ui/avatar"
+
 import { constants } from "@/lib/constants"
-import UserAvatar from "./forms/UserAvatar"
-import { MoreHorizontal, MoreVertical } from "lucide-react"
+import { MoreHorizontal } from "lucide-react"
 import { currentDate } from "@/lib/utils"
 import EventComponent from "./events/EventComponent"
 import { ScrollArea } from "./ui/scroll-area"
 import { events } from "@/lib/constants"
 import React from "react"
+import { Button } from "./ui/button"
 // SCrollable Left Widget to show upcoming events, etc.
 const LeftWidget = ({ user, ...props }) => {
 
@@ -17,7 +16,7 @@ const LeftWidget = ({ user, ...props }) => {
     }, [events])
 
     return (
-        <div className='relative w-[95%] h-fit  sm:w-[50%]  sm:h-[95%] max-h-[95%] sm:max-w-[50%] bg-white/50 rounded-lg  sm:ml-4 mt-12 sm:mt-4 dark:bg-gray-300/10'>
+        <div className='relative flex flex-col justify-between w-[95%] h-fit  sm:w-[50%]  sm:h-[95%] max-h-[95%] sm:max-w-[50%] bg-white/50 rounded-lg  sm:ml-4 mt-12 sm:mt-4 dark:bg-zinc-600/10'>
 
             <div className=" w-full h-20 bg-transparent items-center justify-between flex flex-row">
                 <div className=" mt-2 mx-4  flex flex-row gap-x-2 items-center">
@@ -36,9 +35,13 @@ const LeftWidget = ({ user, ...props }) => {
                 <p className=" font-semibold text-black/80 dark:text-white text-2xl">Upcoming Events</p>
                 <p className="text-gray-500 text-sm">Your Upcoming events for today.</p>
             </div>
-            <ScrollArea type="hide" className="relative h-48 sm:h-[60%]  ml-6 mx-3 mt-4 w-[94%] items-center overflow-y-auto">
-                {eventsList(events)}
+            <ScrollArea type="always" className="relative h-48 sm:h-[60%] xl:h[70%] ml-6 mx-3 mt-4 w-[94%] items-center overflow-y-auto">
+                <div className="mr-3">{eventsList(events)}</div>
             </ScrollArea>
+
+            <div className=" mx-3 my-4 w-[94%] items-center rounded-md ">
+                <Button className="w-full h-full text-white font-semibold text-sm">Create Event</Button>
+            </div>
 
         </div>
     )
