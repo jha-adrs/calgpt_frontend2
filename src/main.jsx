@@ -8,6 +8,8 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Signin from '@/components/auth/Signin.jsx'
 import SignUp from '@/components/auth/SignUp.jsx'
 import NotFound from '@/components/not-found.jsx'
+import Dashboard from '@/components/Dashboard.jsx'
+import { TooltipProvider } from '@/components/ui/tooltip.jsx'
 
 const queryClient = new QueryClient()
 const router = createBrowserRouter([
@@ -23,6 +25,10 @@ const router = createBrowserRouter([
     path: "/signup",
     Component: SignUp
   },
+  {
+    path: "/dashboard",
+    Component: Dashboard
+  },
   //Not Found
   {
     path: "*",
@@ -35,7 +41,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
       <ThemeProvider>
+        <TooltipProvider>
         <RouterProvider router={router} />
+        </TooltipProvider>
       </ThemeProvider>
     </QueryClientProvider>
   </React.StrictMode>,

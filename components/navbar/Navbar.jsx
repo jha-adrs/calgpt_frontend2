@@ -7,6 +7,8 @@ const Navbar = () => {
   return (
     <div>
       Top Nav
+      {/**Top Nav */}
+      {/**Left Nav */}
     </div>
   )
 }
