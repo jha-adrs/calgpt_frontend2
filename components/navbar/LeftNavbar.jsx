@@ -13,7 +13,7 @@ const LeftNavbar = () => {
     
     return (
         <>
-        <div className='hidden sm:flex flex-col w-10   bg-white/20 dark:bg-gray-200/10 rounded-lg ml-2 mt-4   justify-between h-full '>
+        <div className='hidden sm:flex flex-col w-[6%] bg-white/60 dark:bg-gray-200/10 rounded-lg ml-2 mt-4   justify-between h-[95%] '>
             <div className='my-4'>
                 <Feather  className='flex flex-col items-center justify-center w-full aspect-square rounded bg-transparent border-none text-gray-800 dark:text-white mb-8  h-8' />
                 <div className="flex flex-col gap-6 items-center">
