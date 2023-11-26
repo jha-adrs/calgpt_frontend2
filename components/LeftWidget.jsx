@@ -5,10 +5,19 @@ import UserAvatar from "./forms/UserAvatar"
 import { MoreHorizontal, MoreVertical } from "lucide-react"
 import { currentDate } from "@/lib/utils"
 import EventComponent from "./events/EventComponent"
+import { ScrollArea } from "./ui/scroll-area"
+import { events } from "@/lib/constants"
+import React from "react"
 // SCrollable Left Widget to show upcoming events, etc.
 const LeftWidget = ({ user, ...props }) => {
+
+    React.useEffect(() => {
+        console.log(events);
+        // Get events from the server
+    }, [events])
+
     return (
-        <div className='relative  w-[95%] h-[60%] sm:w-[50%]  sm:h-[95%] max-h-[95%] sm:max-w-[50%] bg-white/50 rounded-lg  sm:ml-4 mt-12 sm:mt-4 dark:bg-gray-300/10'>
+        <div className='relative w-[95%] h-fit  sm:w-[50%]  sm:h-[95%] max-h-[95%] sm:max-w-[50%] bg-white/50 rounded-lg  sm:ml-4 mt-12 sm:mt-4 dark:bg-gray-300/10'>
 
             <div className=" w-full h-20 bg-transparent items-center justify-between flex flex-row">
                 <div className=" mt-2 mx-4  flex flex-row gap-x-2 items-center">
@@ -27,12 +36,22 @@ const LeftWidget = ({ user, ...props }) => {
                 <p className=" font-semibold text-black/80 dark:text-white text-2xl">Upcoming Events</p>
                 <p className="text-gray-500 text-sm">Your Upcoming events for today.</p>
             </div>
-            <div className="mx-3 mt-4 w-[94%] items-center ">
-                <EventComponent />
-            </div>
+            <ScrollArea type="hide" className="relative h-48 sm:h-[60%]  ml-6 mx-3 mt-4 w-[94%] items-center overflow-y-auto">
+                {eventsList(events)}
+            </ScrollArea>
 
         </div>
     )
 }
 
 export default LeftWidget
+
+const eventsList = (events) => {
+    if (events?.length == 0) {
+        console.log("No events for today.")
+        return <p className="text-gray-500 text-sm items-center justify-center mb-5 ml-4">No events for today. ☹️ </p>
+    }
+    return events.map((event) => {
+        return <EventComponent key={event.id} event={event} />
+    })
+}
