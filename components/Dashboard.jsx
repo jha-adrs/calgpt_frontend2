@@ -1,8 +1,17 @@
 import LeftNavbar from './navbar/LeftNavbar'
-import LeftWidget from './LeftWidget'
-import MainCalendar from './MainCalendar'
 
+import MainCalendar from './MainCalendar'
+import React, { Suspense, lazy } from 'react'
+import LeftWidgetSkeleton from './LeftWidgetSkeleton';
+import LeftWidget from '@/components/LeftWidget';
+import CalendarSuspense from './CalendarSuspense';
 const Dashboard = () => {
+    const [isLoaded, setIsLoaded] = React.useState(false);
+    React.useEffect(() => {
+        setTimeout(() => {
+            setIsLoaded(true);
+        }, 2000);
+    }, [])
     return (
         <div className=" h-screen flex-col  justify-center 
     bg-[radial-gradient(at_bottom,_var(--tw-gradient-stops))] from-slate-200 via-rose-300 to-violet-600
@@ -13,9 +22,11 @@ const Dashboard = () => {
                 <LeftNavbar />
 
                 {/*Left Widget */}
-                <LeftWidget />
+                
+                {isLoaded ? <LeftWidget /> : <LeftWidgetSkeleton />}
+            
                 {/*Main Calendar */}
-                <MainCalendar/>
+                {isLoaded ? <MainCalendar /> : <CalendarSuspense />}
             </div>
         </div>
     )
